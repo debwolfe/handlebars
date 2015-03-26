@@ -2,12 +2,23 @@
 <html lang="en">
 <head>
  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+ <script type="text/javascript" src="handlebars.js"></script>
  <script type="text/javascript" src="application.js"></script>
-  <title>Go Sea Lions</title>
+ <title>Go Sea Lions</title>
 </head>
-<body>
-  <h1>Shoes What</h1>
-  <ul class="shoesNav">
-  </ul>​
-</body>
+ <script id="entry-template" type="text/x-handlebars-template">
+  <div class="entry">
+    <h1>{{title}}</h1>
+    <div class="body">
+      {{body}}
+    </div>
+  </div>
+</script>
+<script>
+var source   = $("#entry-template").html();
+var template = Handlebars.compile(source);
+var context = {title: "My New Post", body: "This is my first post!"};
+var html    = template(context);
+</script>
 </html>
+
